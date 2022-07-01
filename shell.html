@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+   <meta charset="UTF-8" />
+   <meta name="google" content="notranslate" />
+   <head>
+      <title>MedNotes | NWMPHN - Patients</title>
+      <meta charset="utf-8" />
+      <meta
+         name="viewport"
+         content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      />
+      <meta name="theme-color" content="#ffffff" />
+      <link
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+         rel="stylesheet"
+         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+         crossorigin="anonymous"
+      />
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.min.css"
+         crossorigin="anonymous"
+      />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+         crossorigin="anonymous"
+         referrerpolicy="no-referrer"
+      />
+      <link
+         rel="icon"
+         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📒</text></svg>"
+      />
+   </head>
+   <body>
+      <main role="main" class="container-fluid d-flex flex-column h-100">
+         <header class="p-3 mb-3 border-bottom">
+            <div class="container">
+               <div
+                  class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+               >
+                  <a
+                     href="/"
+                     class="d-flex align-items-center mb-lg-0 text-dark text-decoration-none"
+                  >
+                     <i class="fa-solid fa-book fa-2xl pe-1"></i>
+                  </a>
+
+                  <ul
+                     class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 sm-contents"
+                  >
+                     <li
+                        class="nav-link px-2 pe-sm-5 text-dark fw-bold"
+                        role="button"
+                     >
+                        MedNotes
+                     </li>
+                     <li class="d-none d-sm-block">
+                        <a href="#" class="nav-link px-2 link-secondary"
+                           ><u>Patients</u></a
+                        >
+                     </li>
+                     <li class="d-none d-sm-block">
+                        <a href="#" class="nav-link px-2 link-dark"
+                           >Head2Health</a
+                        >
+                     </li>
+                  </ul>
+
+                  <form
+                     class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-none d-sm-block pt-sm-3 pt-lg-0"
+                  >
+                     <input
+                        type="search"
+                        class="form-control"
+                        placeholder="Search notes..."
+                        aria-label="Search"
+                     />
+                  </form>
+
+                  <div id="user" role="button" class="d-none d-sm-block pe-2">
+                     Steve
+                  </div>
+
+                  <div class="dropdown text-end d-none d-sm-block">
+                     <a
+                        href="#"
+                        class="d-block link-dark text-decoration-none dropdown-toggle"
+                        id="dropdownUser1"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                     >
+                        <img
+                           src="https://github.com/mdo.png"
+                           alt="mdo"
+                           width="32"
+                           height="32"
+                           class="rounded-circle"
+                        />
+                     </a>
+                     <ul
+                        class="dropdown-menu text-small"
+                        aria-labelledby="dropdownUser1"
+                     >
+                        <li>
+                           <a class="dropdown-item" href="#">New notebook...</a>
+                        </li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </header>
+         <h3><i class="fa-solid fa-pen h5 pe-2"></i>New Note</h3>
+         <div class="dropdown">
+            <button
+               class="btn btn-info dropdown-toggle"
+               type="button"
+               id="dropdownMenuButton2"
+               data-bs-toggle="dropdown"
+               aria-expanded="false"
+            >
+               Select Note Type
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+               <div id="addNoteTypeChoices"></div>
+            </ul>
+         </div>
+
+         <form>
+            <div class="row">
+               <div class="col-sm-7 mb-3 mt-2">
+                  <textarea
+                     type="text"
+                     class="form-control"
+                     id="noteText"
+                     aria-describedby="noteText"
+                  ></textarea>
+               </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+         </form>
+
+         <h3 class="mt-5">
+            <i class="fa-solid fa-file-lines h5 pe-2"></i>View Notes
+         </h3>
+
+         <div>
+            <div class="btn-group">
+               <button
+                  class="btn btn-info dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton3"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+               >
+                  View All
+               </button>
+               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                  <div id="viewNoteTypeChoices"></div>
+               </ul>
+            </div>
+         </div>
+
+         <div class="container-fluid">
+            <div class="row my-3 text-dark fw-bold">
+               <div class="col-2 d-none d-sm-block">Type</div>
+               <div id="date-button" class="col-2 d-flex" role="button">
+                  <u>Date</u
+                  ><i id="date-sort-icon" class="bi bi-arrow-down ps-1"></i>
+               </div>
+               <div class="col-2">Author</div>
+               <div class="col">Content</div>
+            </div>
+         </div>
+
+         <div id="results"></div>
+      </main>
+
+      <script
+         src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+         crossorigin="anonymous"
+      ></script>
+   </body>
+
+   <script id="drop-down-choices">
+      // Note Types
+      const noteTypes = [
+         { id: 1, note_type: 'Follow up' },
+         { id: 2, note_type: 'Clinical' },
+         { id: 3, note_type: 'Documentation' },
+      ];
+
+      // Add Choices to DropDown - Helper Fn
+      const addDropDownChoices = (types, div) => {
+         for (let choice of types) {
+            const el = document.createElement('li');
+            el.innerHTML = `<li><a id=${choice.id} class="dropdown-item" href="#">${choice.note_type}</a></li>`;
+            div.append(el);
+         }
+      };
+
+      // Add choices for Add New Note DropDown
+      addDropDownChoices(
+         noteTypes,
+         document.querySelector('#addNoteTypeChoices')
+      );
+
+      // View Notes DropDown
+      //.. Add View All option to View Notes DD
+      const updatedNoteTypes = [...noteTypes, { id: 4, note_type: 'View All' }];
+
+      // Add choices to View Notes
+      addDropDownChoices(
+         updatedNoteTypes,
+         document.querySelector('#viewNoteTypeChoices')
+      );
+   </script>
+
+   <script id="notes-list">
+      // Notes List
+      const notesList = [
+         {
+            created_at: '2022-01-10 11:42:16',
+            created_by: 'Lois Griffin',
+            id_note_type: 2,
+            note: "Suzie's depressed mood has been identified as an active problem in need of treatment. It is primarily manifested by:\nThoughts of death or suicide - experienced almost daily.\nLong term goals:\n - Will score within normal Limits on the Beck Depression Scale.\n - Will maintain compliance with psychotropic medications.\nShort term goals:\nSuzie will recognise and report thoughts of death to staff daily for one week.\nShe will attend daily grief support group.\nShe will attend 3 recreation activities per week.",
+            uuid: 'fe7aa54a-4741-4001-b97b-84975bf52464',
+         },
+         {
+            created_at: '2021-11-15 11:51:45',
+            created_by: 'Steve Smith',
+            id_note_type: 1,
+            note: 'Followed up with client.',
+            uuid: '0184aa3a-2c2a-4e85-86ed-3531e84d09f0',
+         },
+         {
+            created_at: '2021-11-15 11:51:29',
+            created_by: 'Lois Griffin',
+            id_note_type: 3,
+            note: 'Received call from Rachel, warm handover completed.',
+            uuid: '82339c9e-00ff-4b96-a37b-0d610d776b08',
+         },
+         {
+            created_at: '2021-11-16 12:32:01',
+            created_by: 'Lois Griffin',
+            id_note_type: 3,
+            note: 'IAR generated to contribute to an already existing CiM referral. No need for SMS follow up.',
+            uuid: '0c44c575-5522-4055-8673-e0b0c1c086c1',
+         },
+         {
+            created_at: '2021-11-14 18:12:58',
+            created_by: 'Steve Smith',
+            id_note_type: 2,
+            note: 'His depressed mood has been identified as an active problem in need of treatment. He has thoughts of death or suicide - experienced almost daily. Long term goals: Will score within normal Limits on the Beck Depression Scale. Will maintain compliance with psychotropic medications.',
+            uuid: '26cf0129-ef4a-4a48-9723-ad095346bd6b',
+         },
+      ];
+   </script>
+
+   <script id="sort-by-note-type">
+      // New Note: Render Dropdown text depending on note type
+      const dropDownButton2 = document.querySelector('#dropdownMenuButton2');
+      const addChoices = document.querySelectorAll(
+         '#addNoteTypeChoices .dropdown-item'
+      );
+      for (let choice of addChoices) {
+         choice.addEventListener('click', () => {
+            dropDownButton2.innerHTML = choice.innerHTML;
+         });
+      }
+
+      // .. Initialise selected note as View All (from arr)
+      let selectedNoteType = updatedNoteTypes[3].note_type;
+      let viewNoteTypeId = updatedNoteTypes[3].id;
+
+      const dropDownButton3 = document.querySelector('#dropdownMenuButton3');
+      const viewChoices = document.querySelectorAll(
+         '#viewNoteTypeChoices .dropdown-item'
+      );
+
+      const updatedNotesList = [];
+      let sortByRecentFirst = true;
+
+      for (let choice of viewChoices) {
+         choice.addEventListener('click', () => {
+            dropDownButton3.innerHTML = choice.innerHTML;
+            viewNoteTypeId = choice.id;
+
+            updatedNotesList.length = 0;
+
+            // Filter Results
+            if (viewNoteTypeId !== '4') {
+               // ie. if View All Notes not selected
+               updatedNotesList.push(
+                  ...notesList.filter(note => note.id_note_type == choice.id)
+               );
+               document.querySelector('#results').classList.add('show-single');
+            } else {
+               updatedNotesList.push(...notesList);
+               document
+                  .querySelector('#results')
+                  .classList.remove('show-single');
+            }
+
+            sortByDate(sortByRecentFirst, updatedNotesList);
+         });
+      }
+   </script>
+
+   <script id="sort-by-date">
+      const sortByDateButton = document.querySelector('#date-button');
+
+      // Sort By Date
+
+      sortByDateButton.addEventListener('click', () => {
+         sortByRecentFirst = !sortByRecentFirst;
+
+         if (updatedNotesList.length === 0) {
+            // ie. notes not yet filtered
+            sortByDate(sortByRecentFirst, notesList);
+         } else {
+            // notes have been filtered
+            sortByDate(sortByRecentFirst, updatedNotesList);
+         }
+
+         // Toggle DateIcon
+         const dateIcon = document.querySelector('#date-sort-icon');
+         dateIcon.classList.toggle('bi-arrow-up');
+      });
+
+      // Sort By Date - Helper Fn
+      const sortByDate = (choice, notes) => {
+         if (choice) {
+            // Sort - Recent First
+            renderResults(
+               notes.sort(
+                  (a, b) => new Date(b.created_at) - new Date(a.created_at)
+               )
+            );
+         } else {
+            // Sort - Oldest First
+            renderResults(
+               notes.sort(
+                  (a, b) => new Date(a.created_at) - new Date(b.created_at)
+               )
+            );
+         }
+      };
+   </script>
+
+   <script id="render-grid">
+      const resultsDiv = document.querySelector('#results');
+
+      const renderResults = selectedNotes => {
+         resultsDiv.innerHTML =
+            '<div class="container-fluid">' +
+            selectedNotes
+               .map(note => {
+                  // Show note type if All Notes
+                  let label;
+                  switch (note.id_note_type) {
+                     case 1:
+                        label = 'Follow up';
+                        break;
+                     case 2:
+                        label = 'Clinical';
+                        break;
+                     case 3:
+                        label = 'Documentation';
+                        break;
+                  }
+
+                  const date = new Date(note.created_at)
+                     .toISOString()
+                     .slice(0, 10);
+
+                  return `
+                             <div class="row mb-3">
+                                    <div class="col-2 d-none d-sm-block">${label}</div>
+                                    <div class="col-2">${date}</div>
+                                    <div class="col-2 ">${note.created_by}</div>
+                                    <div class="col">${note.note}</div>
+                             </div>
+                         `;
+               })
+               .join('') +
+            `</div>`;
+      };
+
+      sortByDate(sortByRecentFirst, notesList);
+   </script>
+</html>
+
+<style>
+   @media (max-width: 992px) {
+      .sm-contents {
+         display: contents;
+      }
+   }
+</style>
