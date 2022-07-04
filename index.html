@@ -309,6 +309,13 @@
             }
 
             sortByDate(sortByRecentFirst, updatedNotesList);
+
+            // Hide Date Sorting Icon if only one result
+            if (updatedNotesList.length > 1) {
+               dateIcon.classList.remove('d-none');
+            } else {
+               dateIcon.classList.add('d-none');
+            }
          });
       }
    </script>
@@ -316,7 +323,10 @@
    <script id="sort-by-date">
       const sortByDateButton = document.querySelector('#date-button');
 
-      // Sort By Date
+      // SORT BY DATE
+
+      // Define date icon
+      const dateIcon = document.querySelector('#date-sort-icon');
 
       sortByDateButton.addEventListener('click', () => {
          sortByRecentFirst = !sortByRecentFirst;
@@ -330,9 +340,11 @@
          }
 
          // Toggle DateIcon
-         const dateIcon = document.querySelector('#date-sort-icon');
          dateIcon.classList.toggle('bi-arrow-up');
       });
+
+      // Fix date for all browsers
+      const fixDate = dateString => dateString.replace(/-/g, '/');
 
       // Sort By Date - Helper Fn
       const sortByDate = (choice, notes) => {
@@ -340,14 +352,18 @@
             // Sort - Recent First
             renderResults(
                notes.sort(
-                  (a, b) => new Date(b.created_at) - new Date(a.created_at)
+                  (a, b) =>
+                     new Date(fixDate(b.created_at)) -
+                     new Date(fixDate(a.created_at))
                )
             );
          } else {
             // Sort - Oldest First
             renderResults(
                notes.sort(
-                  (a, b) => new Date(a.created_at) - new Date(b.created_at)
+                  (a, b) =>
+                     new Date(fixDate(a.created_at)) -
+                     new Date(fixDate(b.created_at))
                )
             );
          }
