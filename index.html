@@ -170,7 +170,8 @@
             <div class="row my-3 text-dark fw-bold">
                <div class="col-2 d-none d-sm-block">Type</div>
                <div id="date-button" class="col-2 d-flex" role="button">
-                  <u>Date</u
+                  <span id="date-label" class="text-decoration-underline"
+                     >Date</span
                   ><i id="date-sort-icon" class="bi bi-arrow-down ps-1"></i>
                </div>
                <div class="col-2">Author</div>
@@ -313,21 +314,24 @@
             // Hide Date Sorting Icon if only one result
             if (updatedNotesList.length > 1) {
                dateIcon.classList.remove('d-none');
+               sortByDateLabel.classList.add('text-decoration-underline');
+               sortByDateButton.setAttribute('role', 'button');
             } else {
                dateIcon.classList.add('d-none');
+               sortByDateLabel.classList.remove('text-decoration-underline');
+               sortByDateButton.setAttribute('role', 'none');
             }
          });
       }
    </script>
 
    <script id="sort-by-date">
+      // Define Date Buttons
       const sortByDateButton = document.querySelector('#date-button');
-
-      // SORT BY DATE
-
-      // Define date icon
+      const sortByDateLabel = document.querySelector('#date-label');
       const dateIcon = document.querySelector('#date-sort-icon');
 
+      // SORT BY DATE
       sortByDateButton.addEventListener('click', () => {
          sortByRecentFirst = !sortByRecentFirst;
 
