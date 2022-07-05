@@ -214,11 +214,11 @@
 
       // View Notes DropDown
       //.. Add View All option to View Notes DD
-      const updatedNoteTypes = [...noteTypes, { id: 4, note_type: 'View All' }];
+      const viewNoteTypes = [...noteTypes, { id: 4, note_type: 'View All' }];
 
       // Add choices to View Notes
       addDropDownChoices(
-         updatedNoteTypes,
+         viewNoteTypes,
          document.querySelector('#viewNoteTypeChoices')
       );
    </script>
@@ -265,21 +265,18 @@
    </script>
 
    <script id="sort-by-note-type">
-      // New Note: Render Dropdown text depending on note type
+      // Add New Note: Render Dropdown text depending on note type
       const dropDownButton2 = document.querySelector('#dropdownMenuButton2');
-      const addChoices = document.querySelectorAll(
+      const addNoteChoices = document.querySelectorAll(
          '#addNoteTypeChoices .dropdown-item'
       );
-      for (let choice of addChoices) {
+      for (let choice of addNoteChoices) {
          choice.addEventListener('click', () => {
             dropDownButton2.innerHTML = choice.innerHTML;
          });
       }
 
-      // .. Initialise selected note as View All (from arr)
-      let selectedNoteType = updatedNoteTypes[3].note_type;
-      let viewNoteTypeId = updatedNoteTypes[3].id;
-
+      // Sort By DropdWodn: Render DD
       const dropDownButton3 = document.querySelector('#dropdownMenuButton3');
       const viewChoices = document.querySelectorAll(
          '#viewNoteTypeChoices .dropdown-item'
@@ -301,12 +298,9 @@
                updatedNotesList.push(
                   ...notesList.filter(note => note.id_note_type == choice.id)
                );
-               document.querySelector('#results').classList.add('show-single');
             } else {
                updatedNotesList.push(...notesList);
-               document
-                  .querySelector('#results')
-                  .classList.remove('show-single');
+               document.querySelector('#results');
             }
 
             sortByDate(sortByRecentFirst, updatedNotesList);
